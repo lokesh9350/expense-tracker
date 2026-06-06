@@ -20,16 +20,16 @@ def main():
     iprice=[]
     while True:
         menu()
-        ch=input("Enter choice :")
+        ch=int(input("Enter choice :"))
         if ch==1:
             add_expense(iname,iprice)
         elif ch==2:
-            view_expense()
+            view_expense(iname,iprice)
         elif ch==3:
             print("Thanks")
             break
-    else:
-        print("Invalid Choice")
+        else:
+            print("Invalid Choice")
 
 main()
     
