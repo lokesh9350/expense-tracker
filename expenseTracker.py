@@ -4,7 +4,9 @@ def menu():
    print("3.Total Expense")
    print("4.Search ")
    print("5.Delete")
-   print("6.Exit")
+   print("6.Highest expense")
+   print("7.Lowest expense")
+   print("8.Exit")
 
 
 def add_expense(iname,iprice):
@@ -12,6 +14,7 @@ def add_expense(iname,iprice):
     eiprice=int(input("Enter item price :"))
     iname.append(einame)
     iprice.append(eiprice)
+    print("Added")
 def view_expense(iname,iprice):
     if len(iname)<=0:
         print("first add expense")
@@ -44,6 +47,31 @@ def delete(iname,iprice):
             return
     print("Not Found")
     
+def hig(iname,iprice):
+    if not iname:
+        print("Add Expense first")
+        return
+    h=iprice[0]
+    for i in iprice:
+        if h<i:
+            h=i
+    print("Highest Price :",h)
+    print("Highest price Item :",iname[iprice.index(h)])
+
+def low(iname,iprice):
+    if iname==[]:
+        print("add expense first")
+        return
+    l=iprice[0]
+    for i in iprice:
+        if l>i:
+            l=i
+    print("Lowest price :",l)
+    print("Lowest price item :",iname[iprice.index(l)])
+            
+    
+    
+
 
 
 
@@ -63,8 +91,12 @@ def main():
            search_expense(iname,iprice)
         elif ch==5:
             delete(iname,iprice)
-
         elif ch==6:
+            hig(iname,iprice)
+        elif ch==7:
+            low(iname,iprice)
+
+        elif ch==8:
             print("Thanks")
             break
         else:
