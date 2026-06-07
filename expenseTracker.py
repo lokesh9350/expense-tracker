@@ -3,7 +3,8 @@ def menu():
    print("2.View Expenses")
    print("3.Total Expense")
    print("4.Search ")
-   print("5.Exit")
+   print("5.Delete")
+   print("6.Exit")
 
 
 def add_expense(iname,iprice):
@@ -33,6 +34,17 @@ def search_expense(iname,iprice):
             print("Item Price",iprice[i])
             return
     print("Not Found")
+def delete(iname,iprice):
+    sname=input("Enter item name")
+    for i in range(len(iname)):
+        if iname[i]==sname:
+            iname.pop(i)
+            iprice.pop(i)
+            print("Deleted")
+            return
+    print("Not Found")
+    
+
 
 
 def main():
@@ -49,8 +61,10 @@ def main():
             total_expense(iprice)
         elif ch==4:
            search_expense(iname,iprice)
-
         elif ch==5:
+            delete(iname,iprice)
+
+        elif ch==6:
             print("Thanks")
             break
         else:
